@@ -1,0 +1,421 @@
+{% load static %}
+{% load static i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{% block title %} {% endblock %} - Django Jobs</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet"
+          href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet"
+          href="{% static 'vendor/font-awesome/css/font-awesome.min.css' %}">
+    <!-- Google fonts - Roboto for copy, Montserrat for headings-->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,700">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Montserrat:400,700">
+    <!-- owl carousel-->
+    <link rel="stylesheet" href="{% static 'vendor/owl.carousel/assets/owl.carousel.css' %}">
+    <link rel="stylesheet" href="{% static 'vendor/owl.carousel/assets/owl.theme.default.css' %}">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="{% static 'css/style.default.css' %}" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"/>
+    {% block styles %}{% endblock %}
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="favicon.png">
+    <!-- Tweaks for older IEs--><!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+        
+    <style>
+        body {
+        background-image: url('meeting.jpeg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+        }
+        .navbar{
+            background: #1A2980;  
+        background: -webkit-linear-gradient(to right, #26D0CE, #1A2980);  
+        background: linear-gradient(to right, #26D0CE, #1A2980); 
+            margin-top: -15px;
+            margin-bottom: -15px;
+        }
+        .nav-item:hover
+        {
+            color:black;
+        }
+        .job-form-box{
+        -webkit-box-shadow: 2px 2px 8px 0px rgba(169, 169, 169, 1);
+        -moz-box-shadow: 2px 2px 8px 0px rgba(169, 169, 169, 1);
+         box-shadow: 2px 2px 8px 0px rgba(169, 169, 169, 1);
+        }
+
+        .job-form-box{
+         border-radius: 15px 15px 15px 15px;
+        -moz-border-radius: 15px 15px 15px 15px;
+        -webkit-border-radius: 15px 15px 15px 15px;
+         order: 0px solid #000000;
+        }
+
+/*---------footer-------*/
+
+.footer{
+    background: #000;
+    color: #8a8a8a;
+    font-size: 14px;
+    padding: 60px 0 20px;
+    
+}
+.footer p{
+    color: #8a8a8a;
+}
+.footer h3{
+    color: #fff;
+    margin-bottom: 20px;
+}
+.footer-col1,.footer-col2,.footer-col3,.footer-col4{
+    min-width: 250px;
+    margin-bottom: 20px;
+}
+.footer-col1{
+    flex-basis: 30%;
+}
+.footer-col2{
+    flex: 1;
+    text-align: center;
+}
+
+/* card shadow  */
+        .box-image-text{
+            -webkit-box-shadow: 2px 2px 8px 0px rgba(169, 169, 169, 1);
+            -moz-box-shadow: 2px 2px 8px 0px rgba(169, 169, 169, 1);
+            box-shadow: 2px 2px 8px 0px rgba(169, 169, 169, 1);
+        }
+/* image of card corner */
+        .box-image-text {
+            border-radius: 15px 15px 15px 15px;
+            -moz-border-radius: 15px 15px 15px 15px;
+            -webkit-border-radius: 15px 15px 15px 15px ;
+             order: 0px solid #000000;
+        }
+
+        .bg-light-gray{
+            background-color:whitesmoke;
+        }
+
+        .trending{
+            background-color: #06053e;
+        }
+
+        .job-listing{
+            background-color:whitesmoke;
+
+            -webkit-box-shadow: 2px 2px 8px 0px rgba(169, 169, 169, 1);
+            -moz-box-shadow: 2px 2px 8px 0px rgba(169, 169, 169, 1);
+            box-shadow: 2px 2px 8px 0px rgba(169, 169, 169, 1);
+
+            border-radius: 15px 15px 15px 15px;
+            -moz-border-radius: 15px 15px 15px 15px;
+            -webkit-border-radius: 15px 15px 15px 15px;
+             order: 0px solid #000000;
+        }
+
+        /* a */
+        a, a:hover, a:focus, a:active {
+        text-decoration: none;
+        color: inherit;
+        
+        /* .nav-link{
+            color:yellow;
+        } */
+ }
+
+    </style>
+</head>
+
+<body>
+<!-- navbar-->
+{% csrf_token %}
+<header class="header">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a href="{% url 'jobs:home' %}" class="navbar-brand">
+                <img src="{% static 'img/logo-small.png' %}" alt="logo" class="d-none d-lg-block">
+                <span class="sr-only">Home</span>
+            </a>
+            <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+                    class="navbar-toggler navbar-toggler-right">Menu<i class="fa fa-bars"></i>
+            </button>
+            <div id="navbarSupportedContent" class="collapse navbar-collapse">
+                {% with request.resolver_match.url_name as url_name %}
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item {% if url_name == 'home' %}active{% endif %}">
+                            <a href="{% url 'jobs:home' %}" class="nav-link">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item {% if url_name == 'jobs' %}active{% endif %}">
+                            <a href="{% url 'jobs:jobs' %}" class="nav-link">Jobs</a>
+                        </li>
+                        <!-- <li class="nav-item {% if url_name == 'templates' %}active{% endif %}">
+                            <a href="{% url 'resume_cv:templates' %}" class="nav-link">Create ResumeCV</a>
+                        </li> -->
+                        <!-- <li class="nav-item {% if url_name == 'aboutus' %}active{% endif %}">
+                            <a href="{% url 'jobs:jobs' %}" class="nav-link">About Us</a>
+                        </li> -->
+                        {% if request.user.is_authenticated and request.user.role == 'employer' %}
+                            <li class="nav-item dropdown">
+                                <a id="clientZone" href="#" data-toggle="dropdown"
+                                   aria-haspopup="true" aria-expanded="false"
+                                       class="nav-link dropdown-toggle mb-3 mb-lg-0 mt-3 mt-lg-0">
+                                    <!-- <div class="client-menu-image">
+                                        <div class="inner">
+                                            <img src="{% static 'img/company-1.png' %}"
+                                                 alt="company image"
+                                                 class="img-fluid">
+                                        </div>
+                                    </div> -->
+                                    {% if request.user.role == 'employee' %}
+                                        {{ request.user.first_name }} {{ request.user.last_name }}
+                                    {% else %}
+                                        {{ request.user.first_name }}
+                                    {% endif %}
+                                </a>
+                                <div aria-labelledby="clientZone" class="dropdown-menu">
+                                    <a href="{% url 'jobs:employer-dashboard' %}"
+                                       class="dropdown-item {% if url_name == 'employer-dashboard' %}active{% endif %}"
+                                    >
+                                        Dashboard
+                                    </a>
+                                    <a href="{% url 'jobs:employer-all-applicants' %}"
+                                       class="dropdown-item {% if url_name == 'employer-all-applicants' %}active{% endif %}"
+                                    >
+                                        Applicants
+                                    </a>
+                                    <a href="{% url 'jobs:employer-jobs-create' %}"
+                                       class="dropdown-item {% if url_name == 'employer-jobs-create' %}active{% endif %}"
+                                    >
+                                        Post a new job
+                                    </a>
+                                    <a href="{% url 'accounts:logout' %}" class="dropdown-item">Logout</a>
+                                </div>
+                            </li>
+                        {% elif request.user.is_authenticated and request.user.role == 'employee' %}
+                            <li class="nav-item {% if url_name == 'employee-favorites' %}active{% endif %}">
+                                <a href="{% url 'jobs:employee-favorites' %}" class="nav-link">Favorites</a>
+                            </li>
+                            <li class="nav-item {% if url_name == 'employee-my-applications' %}active{% endif %}">
+                                <a href="{% url 'jobs:employee-my-applications' %}" class="nav-link">My Applications</a>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a id="clientZone" href="#" data-toggle="dropdown"
+                                   aria-haspopup="true" aria-expanded="false"
+                                   class="nav-link dropdown-toggle mb-3 mb-lg-0 mt-3 mt-lg-0">
+                                    <!-- <div class="client-menu-image">
+                                        <div class="inner">
+                                            <img src="{% static 'img/company-1.png' %}"
+                                                 alt="company image"
+                                                 class="img-fluid">
+                                        </div>
+                                    </div> -->
+                                    {% if request.user.role == 'employee' %}
+                                        {{ request.user.first_name }} {{ request.user.last_name }}
+                                    {% else %}
+                                        {{ request.user.first_name }}
+                                    {% endif %}
+                                </a>
+                                <div aria-labelledby="clientZone" class="dropdown-menu">
+                                    <a href="{% url 'accounts:employee-profile-update' %}"
+                                       class="dropdown-item {% if url_name == 'employee-profile-update' %}active{% endif %}"
+                                    >
+                                        Edit Profile
+                                    </a>
+                                    <a href="{% url 'accounts:logout' %}" class="dropdown-item">Logout</a>
+                                </div>
+                            </li>
+                        {% else %}
+                            <li class="nav-item dropdown {% if url_name == 'employee-register' or url_name == 'employer-register' %}active{% endif %}">
+                                <a id="pages" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                   class="nav-link dropdown-toggle ">Register
+                                </a>
+                                <div aria-labelledby="pages" class="dropdown-menu">
+                                    <a href="{% url 'accounts:employee-register' %}"
+                                       class="dropdown-item {% if url_name == 'employee-register' %}active{% endif %}"
+                                    >
+                                        Employee
+                                    </a>
+                                    <a href="{% url 'accounts:employer-register' %}"
+                                       class="dropdown-item {% if url_name == 'employer-register' %}active{% endif %}"
+                                    >
+                                        Organizer
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="nav-item" style="color: #fff">
+                                <a href="{% url 'accounts:login' %}"
+                                   class="btn navbar-btn btn-outline-light mb-5 mb-lg-0 {% if url_name == 'login' %}active text-primary{% endif %}"
+                                >
+                                    <i class="fa fa-sign-in"></i>
+                                    Login
+                                </a>
+                            </li>
+                        {% endif %}
+                        <!-- {% include "lang_selector.html" %} -->
+                    </ul>
+                {% endwith %}
+            </div>
+        </div>
+    </nav>
+</header>
+<div>
+    {% if messages %}
+
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            {#            <li{% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}</li>#}
+        {% endfor %}
+
+    {% endif %}
+    {% block content %} {% endblock %}
+</div>
+<!-- <footer class="footer">
+    <div class="footer__block">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-12 mb-5">
+                    <h4 class="h5">About django-jobs</h4>
+                    <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis
+                        aliquet congue. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer__copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 text-md-left text-center">
+                    <p>&copy;{% now "Y" %} django-jobs!</p>
+                </div>
+                <div class="col-md-8 text-center text-md-right github-buttons">
+                    <a href="https://github.com/manjurulhoque/django-job-portal" target="_blank" rel="noopener">
+                        <img alt="stars"
+                             src="https://img.shields.io/github/stars/manjurulhoque/django-job-portal?style=social"/>
+                    </a>
+                    <a href="https://github.com/manjurulhoque/django-job-portal" target="_blank" rel="noopener">
+                        <img alt="forks"
+                             src="https://img.shields.io/github/forks/manjurulhoque/django-job-portal?style=social"/>
+                    </a>
+                    <a href="https://github.com/manjurulhoque/django-job-portal/issues" target="_blank" rel="noopener">
+                        <img alt="issues"
+                             src="https://img.shields.io/github/issues/manjurulhoque/django-job-portal?style=social"/>
+                    </a>
+                    <a href="https://github.com/manjurulhoque/django-job-portal/#contributors-" target="_blank"
+                       rel="noopener">
+                        <img alt="translation"
+                             src="https://img.shields.io/badge/all_contributors-18-orange.svg?style=flat-square"/>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer> -->
+
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col1">
+               <h3>Job Hive</h3>
+                <p>Developed By :-
+                    <br>
+                    Vrushali Patil
+                    <br>
+                    Arpita Maji
+                    <br>
+                    Parmeet Kaur
+                    <br>
+                    Akash Menon
+                    <br>
+                    Om Dubey
+                    <br>
+                    Sourav Malviya
+                    <br>
+                    Rohit Ojha
+                </p>
+                
+    </div>
+    
+</div>
+<!----------Footer---------------> 
+<!-- 
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col1">
+               <h3>Download Our App</h3>
+                <p>Download App for Android and ios mobile phone.</p>
+                <div class="app-logo">
+                    <img src="images/play-store.png">
+                    <img src="images/app-store.png">
+                </div>
+            </div>
+            <div class="footer-col2">
+               <img src="images/fs5 (2).png">
+                <p>Our Purpose Is To Sustainably Service Good foods to our Customers .</p>
+            </div>
+            <div class="footer-col3">
+               <h3>Useful Links</h3>
+                <ul>
+                    <li>Coupons</li>
+                    <li>Blog Post</li>
+                    <li>Join Affiliate</li>
+                </ul>
+            </div>
+            <div class="footer-col4">
+               <h3>Follow Us</h3>
+                <ul>
+                    <li>Facebook</li>
+                    <li>Twitter<li>
+                    <li>Instagram</li>
+                    <li>YouTube</li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <p class="copyright"><a href="index.html">Made with ♡</a></p>
+    </div>
+    
+</div> -->
+<!-- f -->
+<script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'vendor/popper.js/umd/popper.min.js' %}"></script>
+<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'vendor/jquery.cookie/jquery.cookie.js' %}"></script>
+<script src="{% static 'vendor/owl.carousel/owl.carousel.min.js' %}"></script>
+<script src="{% static 'vendor/bootstrap-select/js/bootstrap-select.min.js' %}"></script>
+<script src="{% static 'js/front.js' %}"></script>
+<script src="{% static 'js/custom.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+{% block javascripts %}{% endblock %}
+
+<!--<script type="text/javascript">
+    function changeLanguage(event) {
+    }
+</script>-->
+
+</body>
+
+</html>
