@@ -72,7 +72,7 @@ Used Tech Stack
  #### Results--
 
     
-    Home page:
+Home page:
     
 ![tia1](https://user-images.githubusercontent.com/84987833/232560927-5d46da1d-a558-46e2-861b-5ebc47185162.png)
 
@@ -80,12 +80,12 @@ Used Tech Stack
 
 ![tia3](https://user-images.githubusercontent.com/84987833/232561065-8f69c756-7bec-4c91-a3ed-7236e94734e7.png)
 
-    Applied Jobs:
+Applied Jobs:
     
    ![tiaa4](https://user-images.githubusercontent.com/84987833/232558918-a51dbd84-b7d2-4217-b4ba-52173f28db85.png)
    
 
-    Admin Dashboard:
+ Admin Dashboard:
     
     
    ![tia5](https://user-images.githubusercontent.com/84987833/232559113-a81e8a7b-ca15-4986-b01e-41c9aea08da3.png)
