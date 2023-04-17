@@ -68,11 +68,9 @@ Used Tech Stack
 
     `python manage.py runserver`
     
-    
- #### Results--
+# Results
 
-    
-    Home page:
+Home page:
     
     ![tia1](https://user-images.githubusercontent.com/84987833/232557594-48976c65-e7e9-4aae-b386-872982ac3e9f.png)
     
@@ -80,12 +78,12 @@ Used Tech Stack
     
     ![tia3](https://user-images.githubusercontent.com/84987833/232558062-47c310b2-bdae-44d7-9216-1a6165798e1e.png)
     
-    Applied Jobs:
+Applied Jobs:
     
    ![tiaa4](https://user-images.githubusercontent.com/84987833/232558918-a51dbd84-b7d2-4217-b4ba-52173f28db85.png)
    
 
-    Admin Dashboard:
+Admin Dashboard:
     
     
    ![tia5](https://user-images.githubusercontent.com/84987833/232559113-a81e8a7b-ca15-4986-b01e-41c9aea08da3.png)
