@@ -21,6 +21,7 @@ Used Tech Stack
 5. PHP
 6. Javascript
 7. Node.js
+8. Python
 
 #### Install
 
