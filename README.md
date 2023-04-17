@@ -6,10 +6,17 @@
 
 ## Job Hive - Excellance towards job opportunities
 
-Used Tech Stack
+Introduction:
+Corporate Social Responsibility (CSR) has become an increasingly important aspect of modern business practices. CSR refers to a company's commitment to ethical, social, and environmental responsibility in its operations and interactions with stakeholders. In recent years, CSR has evolved from a peripheral concern to a fundamental aspect of business strategy. Many companies are now embracing CSR as a core value and integrating it into their daily operations.
 
+
+Problem statement:
+This project aims to reduce the manual labour that is required to organise and administer the CSR initiatives across multiple locations.
+
+Used Tech Stack
 1. Django
 2. Sqlite
+
 
 #### Install
 
