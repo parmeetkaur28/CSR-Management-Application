@@ -68,7 +68,8 @@ Used Tech Stack
 
     `python manage.py runserver`
     
-### --Results--
+### Results
+
     
     Home page:
     ![tia1](https://user-images.githubusercontent.com/84987833/232557594-48976c65-e7e9-4aae-b386-872982ac3e9f.png)
