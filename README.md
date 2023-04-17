@@ -67,3 +67,8 @@ Used Tech Stack
 4. Run server:
 
     `python manage.py runserver`
+    
+    
+    
+    ![tia1](https://user-images.githubusercontent.com/84987833/232557594-48976c65-e7e9-4aae-b386-872982ac3e9f.png)
+
