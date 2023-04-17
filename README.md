@@ -6,11 +6,11 @@
 
 ## Job Hive - Excellance towards job opportunities
 
-Introduction:
+### Introduction:
 Corporate Social Responsibility (CSR) has become an increasingly important aspect of modern business practices. CSR refers to a company's commitment to ethical, social, and environmental responsibility in its operations and interactions with stakeholders. In recent years, CSR has evolved from a peripheral concern to a fundamental aspect of business strategy. Many companies are now embracing CSR as a core value and integrating it into their daily operations.
 
 
-Problem statement:
+### Problem statement:
 This project aims to reduce the manual labour that is required to organise and administer the CSR initiatives across multiple locations.
 
 Used Tech Stack
@@ -68,7 +68,7 @@ Used Tech Stack
 
     `python manage.py runserver`
     
-    --Results--
+### --Results--
     
     Home page:
     ![tia1](https://user-images.githubusercontent.com/84987833/232557594-48976c65-e7e9-4aae-b386-872982ac3e9f.png)
