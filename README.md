@@ -16,7 +16,11 @@ This project aims to reduce the manual labour that is required to organise and a
 Used Tech Stack
 1. Django
 2. Sqlite
-
+3. html
+4. CSS
+5. PHP
+6. Javascript
+7. Node.js
 
 #### Install
 
